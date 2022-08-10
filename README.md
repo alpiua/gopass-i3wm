@@ -1,4 +1,4 @@
-# gopass-i3wm wrapper
+# gopass-i3wm wrapper with sharing secrets via link
 
 This repo provides a bunch of scripts and configs to work with Gopass in i3wm:
 
