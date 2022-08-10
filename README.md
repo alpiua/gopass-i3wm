@@ -1,0 +1,1 @@
+# gopass-i3wm
