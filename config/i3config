@@ -1,0 +1,20 @@
+
+# PASSWORD MENU
+set $dmenu_pass gopass ls --flat | rofi -dmenu -i -theme ~/.config/rofi/rofi-gopass.rasi
+set $gopass_script $HOME/.config/system_scripts/gopass
+
+mode "$gopass_menu" {
+        bindsym Return mode "default"
+        bindsym --release Mod1+n exec --no-startup-id $gopass_script username; mode "default"
+        bindsym --release Mod1+p exec --no-startup-id $gopass_script pass; mode "default"
+        bindsym --release Mod1+u exec --no-startup-id $gopass_script url; mode "default"
+        bindsym --release Mod1+c exec --no-startup-id $gopass_script clipboard; mode "default"
+        bindsym --release Mod1+q exec --no-startup-id $gopass_script qr; mode "default"
+        bindsym --release Mod1+e exec --no-startup-id $gopass_script entry; mode "default"
+        bindsym --release Mod1+s exec --no-startup-id $gopass_script share; mode "default"
+        bindsym --release Mod1+z mode "default"
+        bindsym Escape mode "default"
+}
+set $gopass_menu Press to fill Alt + [e]ntry / user[n]ame / [u]rl / [p]assword / [c]lipboard / [s]hare online / display [q]r
+bindsym $mod+Ctrl+Print mode "$gopass_menu"
+bindsym $mod+Print exec --no-startup-id "$HOME/.config/system_scripts/gopass get-item;$HOME/.config/system_scripts/gopass clipboard"
