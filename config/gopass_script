@@ -1,0 +1,55 @@
+#!/bin/bash
+
+QUAKE_TERMINAL_KEY="Super_L+backslash"
+SITE="pass.example.com/share"
+SSH_SERVER="web"
+
+/usr/bin/xkbgroup set num 0
+
+if [ $1 == 'get-item' ]
+  then
+    echo $(gopass ls --flat | rofi -dmenu -i -theme ~/.config/rofi/rofi-gopass.rasi) > /dev/shm/dmenu-pass
+    exit 0
+fi
+
+ITEM=$(cat /dev/shm/dmenu-pass)
+
+case $1 in
+
+  url)
+    echo ${ITEM} | xargs --no-run-if-empty -- bash -c 'gopass show -f $0 url' | head -n 1 | xdotool type --clearmodifiers --file -
+    exit 0
+    ;;
+
+  username)
+    echo ${ITEM} | xargs --no-run-if-empty -- bash -c 'gopass show -f $0 username' | head -n 1 | xdotool type --clearmodifiers --file -
+    exit 0
+    ;;
+
+  pass)
+    sleep 1;xdotool type --clearmodifiers $(gopass show -o ${ITEM})
+    exit 0
+    ;;
+
+  entry)
+    echo $ITEM | sed 's!.*/!!' | tr -d '\n' | xdotool type --clearmodifiers --file -
+    exit 0
+    ;;
+
+  clipboard)
+    gopass show -c ${ITEM}
+    exit 0
+    ;;
+
+  qr)
+    xdotool key ${QUAKE_TERMINAL_KEY} ; sleep 1; xdotool type "gopass show -qr ${ITEM}"; xdotool key Enter
+    exit 0
+    ;;
+
+  share)
+    URI=${SITE}/$(echo ${ITEM} | tr '/' '_')
+    echo ${URI} | xclip -selection clipboard
+    echo -e "~! This secret will be deleted after being opened !~" | ssh web -T "cat > /dev/shm/pass/share/$(echo ${ITEM} | tr '/' '_')"
+    gopass show ${ITEM} 2>/dev/null | ssh ${SSH_SERVER} -T "cat >> /dev/shm/pass/share/$(echo ${ITEM} | tr '/' '_')"
+
+esac
