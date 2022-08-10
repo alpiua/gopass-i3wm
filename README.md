@@ -9,7 +9,7 @@ This repo provides a bunch of scripts and configs to work with Gopass in i3wm:
 One of the behaviour that gopass.sh bash script provides - is an ability to share a password via nginx web server
 
 ## Software you will need:
-rofi, dmenu, xdotool, tilix (for qr codes)
+rofi, xdotool, tilix (for qr codes)
 
 ### i3wm config
 #### Basic usage:
@@ -54,6 +54,7 @@ In first run you should create a directories on server
 
 ### Afterwords
 I hope someone will find this package useful  
-Feel free to use it, improve and leave comments  
+Feel free to use it, improve and leave comments.
+Please, point me out if I missed something important.
 No warranty, using of this package assume you know what you are doing ;)
 
