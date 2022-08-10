@@ -11,14 +11,14 @@ One of the behaviour that gopass.sh bash script provides - is an ability to shar
 ## Software you will need:
 rofi, dmenu, xdotool, tilix (for qr codes)
 
-## i3wm config
-### Basic usage:
+### i3wm config
+#### Basic usage:
 Pressing `$mod+Print` - displaying a rofi menu, selecting the item will:
 1) copy the password to clipboard
 2) store a path to selected item in /dev/shm/dmenu-pass on the localhost
 
 That is covering a most basic everyday needs with fast searching for a passwords
-### i3wm menu
+#### i3wm menu
 Gopass menu `$mod+Ctrl+Print`
 
 Here you find a 7 different hotkeys that can expand the usage of the gopass.  
