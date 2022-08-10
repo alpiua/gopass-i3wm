@@ -52,7 +52,7 @@ All unnopened more than 24h secrets removing as well.
 In first run you should create a directories on server  
 `mkdir -p /dev/shm/pass/share && chown -R root:nginx /dev/shm/pass && chmod -R 750 /dev/shm/pass`
 
-### Afterwards
+### Afterwords
 I hope someone will find this package useful  
 Feel free to use it, improve and leave comments  
 No warranty, using of this package assume you know what you are doing ;)
