@@ -24,9 +24,9 @@ Gopass menu `$mod+Ctrl+Print`
 Here you find a 7 different hotkeys that can expand the usage of the gopass.  
 All additional hotkeys are using Mod1 modifier to prevent from accidential pressing.  
 Before using a menu you should select an item with `$mod+Print`  
-* `Mod1+n` - type 'username' from item if found one
+* `Mod1+n` - type 'username' entry from item if found one
 * `Mod1+p` - type password. Extremely helpful on a remove consoles eg VmWare
-* `Mod1+u` - type 'ur' from item if found one
+* `Mod1+u` - type 'url' entry from item if found one
 * `Mod1+e` - type an entry name
 * `Mod1+c` - add password to clipboard (as `$mod+Print` does)
 * `Mod1+q` - display a qr code for a password with a drop-down tilix terminal
